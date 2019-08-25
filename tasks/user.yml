@@ -1,0 +1,12 @@
+---
+
+- name: Create IAM user
+  iam:
+    iam_type: user
+    name: "{{ iam_username }}"
+    state: present
+    groups: "{{ iam_user_groups }}"
+
+- name: Force user to change default password in first login
+  command: "aws iam create-login-profile --user-name {{ iam_username }} --password {{ iam_user_tmp_pass }} --password-reset-required"
+  ignore_errors: yes

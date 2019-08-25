@@ -1,0 +1,7 @@
+---
+
+- name: Create IAM group
+  iam:
+    iam_type: group
+    name: "{{ iam_group_name }}"
+    state: present

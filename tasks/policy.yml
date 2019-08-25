@@ -1,0 +1,9 @@
+---
+
+- name: Create and attach policy to group
+  iam_policy:
+    iam_type: group
+    iam_name: "{{ iam_group_name }}"
+    policy_name: "{{ iam_policy_name }}"
+    state: present
+    policy_document: "{{ iam_policy_json_path }}"
